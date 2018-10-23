@@ -311,7 +311,7 @@ namespace TPM_sensor_node_unit_test
                 this.portName = string.Empty;
             }
         }
-
+        
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopPolling();

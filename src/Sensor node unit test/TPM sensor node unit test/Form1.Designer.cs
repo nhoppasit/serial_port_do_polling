@@ -64,10 +64,18 @@
             // 
             this.chklAddress.FormattingEnabled = true;
             this.chklAddress.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "11",
+            "12",
+            "13",
+            "21",
+            "22",
+            "23",
             "31",
             "32",
-            "41",
-            "42"});
+            "33"});
             this.chklAddress.Location = new System.Drawing.Point(101, 12);
             this.chklAddress.Name = "chklAddress";
             this.chklAddress.Size = new System.Drawing.Size(74, 139);
