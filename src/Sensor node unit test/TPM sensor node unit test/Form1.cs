@@ -108,6 +108,7 @@ namespace TPM_sensor_node_unit_test
         int DelayInteval = 1000;
         volatile bool StopFlag = true;
         string logText;
+        object locker = new object();
 
         Thread tPolling;
         void StartPolling()
@@ -158,39 +159,42 @@ namespace TPM_sensor_node_unit_test
                         logText = string.Format("{0} << Do polling...", DateTime.Now.ToString("hh:mm:ss fff")); _Log.AppendText(logText); PostResponse(logText);
                         for (int i = 0; i < chklAddress.CheckedItems.Count; i++)
                         {
-                            string addr = chklAddress.CheckedItems[i].ToString();
-                            PostResponse(string.Format("{0} >> Wakeup {1}...", DateTime.Now.ToString("hh:mm:ss fff"), addr));
-                            Response weakup_res = SensorNodesNetwork.Weakup(addr);
-                            if (!weakup_res.Success)
+                            lock (locker)
                             {
-                                PostResponse(string.Format("{0} << {1} do not wake!", DateTime.Now.ToString("hh:mm:ss fff"), addr));
-                            }
-                            else
-                            {
-                                Response query_res = SensorNodesNetwork.Read(addr);
-                                if (!query_res.Success)
+                                string addr = chklAddress.CheckedItems[i].ToString();
+                                PostResponse(string.Format("{0} >> Wakeup {1}...", DateTime.Now.ToString("hh:mm:ss fff"), addr));
+                                Response weakup_res = SensorNodesNetwork.Weakup(addr);
+                                if (!weakup_res.Success)
                                 {
-                                    // do nothing
+                                    PostResponse(string.Format("{0} << {1} do not wake!", DateTime.Now.ToString("hh:mm:ss fff"), addr));
                                 }
                                 else
                                 {
-                                    List<StringBuilder> sbList = (List<StringBuilder>)query_res.Data;
-                                    foreach (StringBuilder sb in sbList)
+                                    Response query_res = SensorNodesNetwork.Read(addr);
+                                    if (!query_res.Success)
                                     {
-                                        PostResponse(sb.ToString());
+                                        // do nothing
                                     }
-                                    List<AnalyticStructure> analyticStructures = (List<AnalyticStructure>)query_res.Analytic;
-                                    foreach (AnalyticStructure analytic in analyticStructures)
+                                    else
                                     {
-                                        foreach (SensorNode.Dashboard.ucSimpleDashboard dash in Dashes)
+                                        List<StringBuilder> sbList = (List<StringBuilder>)query_res.Data;
+                                        foreach (StringBuilder sb in sbList)
                                         {
-                                            dash.PostResponse(analytic.NodeSn, analytic.Battery, analytic.Moisture0, analytic.Moisture30, analytic.Dendrometer, analytic.Humidity, analytic.Temperature);
+                                            PostResponse(sb.ToString());
                                         }
-                                    }
+                                        List<AnalyticStructure> analyticStructures = (List<AnalyticStructure>)query_res.Analytic;
+                                        foreach (AnalyticStructure analytic in analyticStructures)
+                                        {
+                                            foreach (SensorNode.Dashboard.ucSimpleDashboard dash in Dashes)
+                                            {
+                                                dash.PostResponse(analytic.NodeSn, analytic.Battery, analytic.Moisture0, analytic.Moisture30, analytic.Dendrometer, analytic.Humidity, analytic.Temperature);
+                                            }
+                                        }
 
+                                    }
                                 }
+                                if (StopFlag) break;
                             }
-                            if (StopFlag) break;
                         }
 
                         //
@@ -368,5 +372,5 @@ namespace TPM_sensor_node_unit_test
         }
 
         #endregion
-    } 
+    }
 }
