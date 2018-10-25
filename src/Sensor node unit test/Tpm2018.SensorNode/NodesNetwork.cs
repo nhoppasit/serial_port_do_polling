@@ -83,7 +83,7 @@ namespace Tpm2018.SensorNode
                 sp.StopBits = stopBits;
                 sp.Handshake = handshake; // more assign
                 //These timeouts are default and cannot be editted through the class at this point:
-                sp.ReadTimeout = 300;
+                sp.ReadTimeout = 1000;
                 sp.WriteTimeout = 300;
 
                 try
@@ -168,38 +168,44 @@ namespace Tpm2018.SensorNode
                         catch (Exception exReceiving)
                         {
                             byteIncoming = 0;
-                            return Responses.InvalidInput;
-                            //if (1 < iByte)
-                            //{
-                            //    return Responses.InvalidInput;
-                            //}
+                            if (iByte <= 0)
+                                return new Response() { Code = -90, Message = exReceiving.Message, };
                         } // end try
 
                         // <STX> = : come
-                        if (byteIncoming.Equals((int)(':')))
+                        if (byteIncoming.Equals((int)(':')) || byteIncoming.Equals((int)(';')))
                         {
                             sbList.Add(new StringBuilder());
                             isMessageComming = true;
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            iByte = 0;
                         }
 
                         // keep ascii
-                        if (20 <= byteIncoming && byteIncoming <= 0x7E && isMessageComming) sbList[sbList.Count - 1].Append((char)byteIncoming);
-
-                        // <ETX> = # come
-                        if (byteIncoming.Equals((int)('#')))
+                        if (20 <= byteIncoming && byteIncoming <= 0x7E && isMessageComming)
                         {
-                            isMessageComming = false;
+                            sbList[sbList.Count - 1].Append((char)byteIncoming);
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            // next byte
+                            iByte++;
                         }
 
-                        // next byte
-                        iByte++;
+                        // <ETX> = # come
+                        if (byteIncoming.Equals((int)('#')) || byteIncoming.Equals((int)(';')))
+                        {
+                            isMessageComming = false;
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            // next byte
+                            iByte++;
+                        }
+                                               
                         if (256 < iByte) // Check exeed
                         {
                             isExceed = true; break;
                         }
 
                         // Check timeout
-                        if (1000 < sw.ElapsedMilliseconds)
+                        if (700 < sw.ElapsedMilliseconds)
                         {
                             sw.Stop(); isTimeout = true; break;
                         }
@@ -285,37 +291,44 @@ namespace Tpm2018.SensorNode
                         catch (Exception exReceiving)
                         {
                             byteIncoming = 0;
-                            if (1 < iByte)
-                            {
-                                return Responses.InvalidInput;
-                            }
+                            if (iByte <= 0)
+                                return new Response() { Code = -90, Message = exReceiving.Message, };
                         } // end try
 
                         // <STX> = : come
-                        if (byteIncoming.Equals((int)(':')))
+                        if (byteIncoming.Equals((int)(':')) || byteIncoming.Equals((int)(';')))
                         {
                             sbList.Add(new StringBuilder());
                             isMessageComming = true;
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            iByte = 0;
                         }
 
                         // keep ascii
-                        if (20 <= byteIncoming && byteIncoming <= 0x7E && isMessageComming) sbList[sbList.Count - 1].Append((char)byteIncoming);
-
-                        // <ETX> = # come
-                        if (byteIncoming.Equals((int)('#')))
+                        if (20 <= byteIncoming && byteIncoming <= 0x7E && isMessageComming)
                         {
-                            isMessageComming = false;
+                            sbList[sbList.Count - 1].Append((char)byteIncoming);
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            // next byte
+                            iByte++;
                         }
 
-                        // next byte
-                        iByte++;
+                        // <ETX> = # come
+                        if (byteIncoming.Equals((int)('#')) || byteIncoming.Equals((int)(';')))
+                        {
+                            isMessageComming = false;
+                            sw.Stop(); sw.Reset(); sw.Start();
+                            // next byte
+                            iByte++;
+                        }
+
                         if (256 < iByte) // Check exeed
                         {
                             isExceed = true; break;
                         }
 
                         // Check timeout
-                        if (1000 < sw.ElapsedMilliseconds)
+                        if (700 < sw.ElapsedMilliseconds)
                         {
                             sw.Stop(); isTimeout = true; break;
                         }
@@ -342,7 +355,7 @@ namespace Tpm2018.SensorNode
                             string[] astr = sb.ToString().Split('|');
                             if (2 < astr.Length) // Check content 
                             {
-                                if (astr[0].Contains("62") ) // Valid content
+                                if (astr[0].Contains("62")) // Valid content
                                 {
                                     if (4 == astr.Length)
                                     {
@@ -353,7 +366,7 @@ namespace Tpm2018.SensorNode
                                         try { analytic.Battery = decimal.Parse(astr[2]); } catch { }
                                         analyticStructures.Add(analytic);
                                     }
-                                    else if(9==astr.Length)
+                                    else if (9 == astr.Length)
                                     {
                                         AnalyticStructure analytic = new AnalyticStructure
                                         {
@@ -367,7 +380,7 @@ namespace Tpm2018.SensorNode
                                         try { analytic.Temperature = decimal.Parse(astr[7]); } catch { }
                                         analyticStructures.Add(analytic);
                                     }
-                                }                                                                    
+                                }
                             }
                             // anything else for not valid analytic result
                         }

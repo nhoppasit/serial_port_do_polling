@@ -368,5 +368,5 @@ namespace TPM_sensor_node_unit_test
         }
 
         #endregion
-    } // test
+    } 
 }
