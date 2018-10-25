@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 53);
+            this.label1.Location = new System.Drawing.Point(37, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -67,7 +67,7 @@
             // 
             // pgBat
             // 
-            this.pgBat.Location = new System.Drawing.Point(100, 49);
+            this.pgBat.Location = new System.Drawing.Point(86, 45);
             this.pgBat.Name = "pgBat";
             this.pgBat.Size = new System.Drawing.Size(180, 23);
             this.pgBat.TabIndex = 1;
@@ -75,7 +75,7 @@
             // lblBat
             // 
             this.lblBat.AutoSize = true;
-            this.lblBat.Location = new System.Drawing.Point(286, 53);
+            this.lblBat.Location = new System.Drawing.Point(272, 49);
             this.lblBat.Name = "lblBat";
             this.lblBat.Size = new System.Drawing.Size(28, 13);
             this.lblBat.TabIndex = 2;
@@ -84,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 26);
+            this.label3.Location = new System.Drawing.Point(26, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 3;
@@ -93,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(320, 53);
+            this.label4.Location = new System.Drawing.Point(306, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 13);
             this.label4.TabIndex = 4;
@@ -101,7 +101,7 @@
             // 
             // txtNodeSn
             // 
-            this.txtNodeSn.Location = new System.Drawing.Point(100, 23);
+            this.txtNodeSn.Location = new System.Drawing.Point(86, 19);
             this.txtNodeSn.Name = "txtNodeSn";
             this.txtNodeSn.ReadOnly = true;
             this.txtNodeSn.Size = new System.Drawing.Size(132, 20);
@@ -110,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(320, 82);
+            this.label5.Location = new System.Drawing.Point(306, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 9;
@@ -119,7 +119,7 @@
             // lblMoisture0
             // 
             this.lblMoisture0.AutoSize = true;
-            this.lblMoisture0.Location = new System.Drawing.Point(286, 82);
+            this.lblMoisture0.Location = new System.Drawing.Point(272, 78);
             this.lblMoisture0.Name = "lblMoisture0";
             this.lblMoisture0.Size = new System.Drawing.Size(28, 13);
             this.lblMoisture0.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             // pgMoisture0
             // 
-            this.pgMoisture0.Location = new System.Drawing.Point(100, 78);
+            this.pgMoisture0.Location = new System.Drawing.Point(86, 74);
             this.pgMoisture0.Name = "pgMoisture0";
             this.pgMoisture0.Size = new System.Drawing.Size(180, 23);
             this.pgMoisture0.TabIndex = 7;
@@ -135,7 +135,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 82);
+            this.label7.Location = new System.Drawing.Point(21, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 6;
@@ -144,7 +144,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(320, 111);
+            this.label8.Location = new System.Drawing.Point(306, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 13);
             this.label8.TabIndex = 13;
@@ -153,7 +153,7 @@
             // lblMoisture30
             // 
             this.lblMoisture30.AutoSize = true;
-            this.lblMoisture30.Location = new System.Drawing.Point(286, 111);
+            this.lblMoisture30.Location = new System.Drawing.Point(272, 107);
             this.lblMoisture30.Name = "lblMoisture30";
             this.lblMoisture30.Size = new System.Drawing.Size(28, 13);
             this.lblMoisture30.TabIndex = 12;
@@ -161,7 +161,7 @@
             // 
             // pgMoisture30
             // 
-            this.pgMoisture30.Location = new System.Drawing.Point(100, 107);
+            this.pgMoisture30.Location = new System.Drawing.Point(86, 103);
             this.pgMoisture30.Name = "pgMoisture30";
             this.pgMoisture30.Size = new System.Drawing.Size(180, 23);
             this.pgMoisture30.TabIndex = 11;
@@ -169,7 +169,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(29, 111);
+            this.label10.Location = new System.Drawing.Point(15, 107);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 10;
@@ -178,7 +178,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(320, 140);
+            this.label11.Location = new System.Drawing.Point(306, 136);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 13);
             this.label11.TabIndex = 17;
@@ -187,7 +187,7 @@
             // lblDendrometer
             // 
             this.lblDendrometer.AutoSize = true;
-            this.lblDendrometer.Location = new System.Drawing.Point(286, 140);
+            this.lblDendrometer.Location = new System.Drawing.Point(272, 136);
             this.lblDendrometer.Name = "lblDendrometer";
             this.lblDendrometer.Size = new System.Drawing.Size(22, 13);
             this.lblDendrometer.TabIndex = 16;
@@ -195,7 +195,7 @@
             // 
             // pgDendrometer
             // 
-            this.pgDendrometer.Location = new System.Drawing.Point(100, 136);
+            this.pgDendrometer.Location = new System.Drawing.Point(86, 132);
             this.pgDendrometer.Name = "pgDendrometer";
             this.pgDendrometer.Size = new System.Drawing.Size(180, 23);
             this.pgDendrometer.TabIndex = 15;
@@ -203,7 +203,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(23, 140);
+            this.label13.Location = new System.Drawing.Point(9, 136);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(71, 13);
             this.label13.TabIndex = 14;
@@ -212,7 +212,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(320, 169);
+            this.label14.Location = new System.Drawing.Point(306, 165);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 21;
@@ -221,7 +221,7 @@
             // lblHumidity
             // 
             this.lblHumidity.AutoSize = true;
-            this.lblHumidity.Location = new System.Drawing.Point(286, 169);
+            this.lblHumidity.Location = new System.Drawing.Point(272, 165);
             this.lblHumidity.Name = "lblHumidity";
             this.lblHumidity.Size = new System.Drawing.Size(28, 13);
             this.lblHumidity.TabIndex = 20;
@@ -229,7 +229,7 @@
             // 
             // pgHumidity
             // 
-            this.pgHumidity.Location = new System.Drawing.Point(100, 165);
+            this.pgHumidity.Location = new System.Drawing.Point(86, 161);
             this.pgHumidity.Name = "pgHumidity";
             this.pgHumidity.Size = new System.Drawing.Size(180, 23);
             this.pgHumidity.TabIndex = 19;
@@ -237,7 +237,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(44, 169);
+            this.label16.Location = new System.Drawing.Point(30, 165);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(50, 13);
             this.label16.TabIndex = 18;
@@ -246,7 +246,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(320, 198);
+            this.label17.Location = new System.Drawing.Point(306, 194);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(14, 13);
             this.label17.TabIndex = 25;
@@ -255,7 +255,7 @@
             // lblTemperature
             // 
             this.lblTemperature.AutoSize = true;
-            this.lblTemperature.Location = new System.Drawing.Point(286, 198);
+            this.lblTemperature.Location = new System.Drawing.Point(272, 194);
             this.lblTemperature.Name = "lblTemperature";
             this.lblTemperature.Size = new System.Drawing.Size(28, 13);
             this.lblTemperature.TabIndex = 24;
@@ -263,7 +263,7 @@
             // 
             // pgTemperature
             // 
-            this.pgTemperature.Location = new System.Drawing.Point(100, 194);
+            this.pgTemperature.Location = new System.Drawing.Point(86, 190);
             this.pgTemperature.Name = "pgTemperature";
             this.pgTemperature.Size = new System.Drawing.Size(180, 23);
             this.pgTemperature.TabIndex = 23;
@@ -271,7 +271,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(23, 198);
+            this.label19.Location = new System.Drawing.Point(9, 194);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 22;
@@ -308,7 +308,7 @@
             this.Controls.Add(this.pgBat);
             this.Controls.Add(this.label1);
             this.Name = "ucSimpleDashboard";
-            this.Size = new System.Drawing.Size(366, 237);
+            this.Size = new System.Drawing.Size(343, 237);
             this.ResumeLayout(false);
             this.PerformLayout();
 

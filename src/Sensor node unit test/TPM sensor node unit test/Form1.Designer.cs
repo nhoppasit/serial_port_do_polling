@@ -194,6 +194,7 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel1.Controls.Add(this.ucSimpleDashboard1);
@@ -208,6 +209,7 @@
             this.ucSimpleDashboard1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucSimpleDashboard1.Location = new System.Drawing.Point(3, 3);
             this.ucSimpleDashboard1.Name = "ucSimpleDashboard1";
+            this.ucSimpleDashboard1.NodeSn = null;
             this.ucSimpleDashboard1.Size = new System.Drawing.Size(366, 237);
             this.ucSimpleDashboard1.TabIndex = 0;
             // 
@@ -216,6 +218,7 @@
             this.ucSimpleDashboard2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucSimpleDashboard2.Location = new System.Drawing.Point(375, 3);
             this.ucSimpleDashboard2.Name = "ucSimpleDashboard2";
+            this.ucSimpleDashboard2.NodeSn = null;
             this.ucSimpleDashboard2.Size = new System.Drawing.Size(366, 237);
             this.ucSimpleDashboard2.TabIndex = 1;
             // 
