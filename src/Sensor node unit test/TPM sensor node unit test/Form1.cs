@@ -77,7 +77,6 @@ namespace TPM_sensor_node_unit_test
             }
         }
 
-
         LogFile.Log _Log = new LogFile.Log(@"C:\TPM2018 Log", @"Unit tester");
 
         public Form1()
@@ -100,6 +99,8 @@ namespace TPM_sensor_node_unit_test
                 cboPort.Text = "-";
                 this.portName = string.Empty;
             }
+
+            flowLayoutPanel1.Controls.Clear();
         }
 
         #region Polling thread
@@ -178,9 +179,18 @@ namespace TPM_sensor_node_unit_test
                                     {
                                         PostResponse(sb.ToString());
                                     }
+                                    List<AnalyticStructure> analyticStructures = (List<AnalyticStructure>)query_res.Analytic;
+                                    foreach (AnalyticStructure analytic in analyticStructures)
+                                    {
+                                        foreach (SensorNode.Dashboard.ucSimpleDashboard dash in Dashes)
+                                        {
+                                            dash.PostResponse(analytic.NodeSn, analytic.Battery, analytic.Moisture0, analytic.Moisture30, analytic.Dendrometer, analytic.Humidity, analytic.Temperature);
+                                        }
+                                    }
 
                                 }
                             }
+                            if (StopFlag) break;
                         }
 
                         //
@@ -203,7 +213,7 @@ namespace TPM_sensor_node_unit_test
                 PostResponse(logText);
                 StopPolling();
             }
-        } 
+        }
 
         string portName = string.Empty;
         int baudRate = 9600;
@@ -318,7 +328,40 @@ namespace TPM_sensor_node_unit_test
                 this.portName = string.Empty;
             }
         }
-        
+
+        private void chklAddress_Enter(object sender, EventArgs e)
+        {
+            StopPolling();
+        }
+
+        List<SensorNode.Dashboard.ucSimpleDashboard> Dashes = new List<SensorNode.Dashboard.ucSimpleDashboard>();
+        private void chklAddress_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                SensorNode.Dashboard.ucSimpleDashboard obj = new SensorNode.Dashboard.ucSimpleDashboard();
+                obj.NodeSn = chklAddress.Items[e.Index].ToString();
+                obj.PostResponse(obj.NodeSn, 0, 1023, 1023, 0, 0, 0);
+                //obj.PostResponse(obj.NodeSn, 2.0m, 500m, 400m, 200m, 40.7m, 32.3m);
+                Dashes.Add(obj);
+                flowLayoutPanel1.Controls.Add(obj);
+            }
+            else
+            {
+                int cnt = Dashes.Count;
+                for (int i = 0; i < cnt; i++)
+                {
+                    if (Dashes[i].NodeSn.Equals(chklAddress.Items[e.Index].ToString()))
+                    {
+                        SensorNode.Dashboard.ucSimpleDashboard obj = Dashes[i];
+                        Dashes.Remove(Dashes[i]);
+                        obj.Dispose();
+                        break;
+                    }
+                }
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopPolling();

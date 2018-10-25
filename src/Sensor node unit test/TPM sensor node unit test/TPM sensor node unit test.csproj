@@ -117,6 +117,10 @@
       <Project>{e2537b7a-2bfd-47b2-b44c-da2f2c76d526}</Project>
       <Name>Log File</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SensorNode.Dashboard\SensorNode.Dashboard.csproj">
+      <Project>{a8848259-a344-4add-afb0-d09b2d64a1f8}</Project>
+      <Name>SensorNode.Dashboard</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tpm2018.SensorNode\Tpm2018.SensorNode.csproj">
       <Project>{b00205d0-458b-472d-835f-905f746d03b1}</Project>
       <Name>Tpm2018.SensorNode</Name>
