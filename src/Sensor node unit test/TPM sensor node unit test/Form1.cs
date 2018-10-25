@@ -114,6 +114,10 @@ namespace TPM_sensor_node_unit_test
             tPolling = new Thread(PollingLoop);
             tPolling.Start();
         }
+
+        /// <summary>
+        /// DO POLLING
+        /// </summary>
         void PollingLoop()
         {
             try
@@ -174,6 +178,7 @@ namespace TPM_sensor_node_unit_test
                                     {
                                         PostResponse(sb.ToString());
                                     }
+
                                 }
                             }
                         }
@@ -198,7 +203,7 @@ namespace TPM_sensor_node_unit_test
                 PostResponse(logText);
                 StopPolling();
             }
-        }
+        } 
 
         string portName = string.Empty;
         int baudRate = 9600;
@@ -266,6 +271,8 @@ namespace TPM_sensor_node_unit_test
 
         #endregion
 
+        #region Events
+
         private void chkPolling_CheckedChanged(object sender, EventArgs e)
         {
             if (chkPolling.Checked) { if (StopFlag) StartPolling(); chkPolling.Text = "Stop Polling"; chkPolling.BackColor = Color.Red; }
@@ -316,5 +323,7 @@ namespace TPM_sensor_node_unit_test
         {
             StopPolling();
         }
+
+        #endregion
     }
 }

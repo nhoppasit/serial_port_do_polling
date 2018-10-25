@@ -11,10 +11,22 @@ namespace Tpm2018.SensorNode
         public int Code { get; set; }
         public string Message { get; set; }
         public object Data { get; set; }
+        public object Analytic { get; set; }
         public override string ToString()
         {
             return string.Format("CODE-{0}, {1}", Code, Message);
         }
+    }
+
+    public struct AnalyticStructure
+    {
+        public string NodeSn;
+        public decimal Battery;
+        public decimal Moisture0;
+        public decimal Moisture30;
+        public decimal Dendrometer;
+        public decimal Humidity;
+        public decimal Temperature;
     }
 
     public static class Responses

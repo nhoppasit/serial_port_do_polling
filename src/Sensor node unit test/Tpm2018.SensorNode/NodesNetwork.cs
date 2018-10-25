@@ -335,7 +335,43 @@ namespace Tpm2018.SensorNode
                     var response = Responses.Success;
                     if (0 < sbList.Count)
                     {
-                        foreach (StringBuilder sb in sbList) _Log.AppendText(sb.ToString());
+                        List<AnalyticStructure> analyticStructures = new List<AnalyticStructure>();
+                        foreach (StringBuilder sb in sbList)
+                        {
+                            _Log.AppendText(sb.ToString());
+                            string[] astr = sb.ToString().Split('|');
+                            if (2 < astr.Length) // Check content 
+                            {
+                                if (astr[0].Contains("62") ) // Valid content
+                                {
+                                    if (4 == astr.Length)
+                                    {
+                                        AnalyticStructure analytic = new AnalyticStructure
+                                        {
+                                            NodeSn = astr[1]
+                                        };
+                                        try { analytic.Battery = decimal.Parse(astr[2]); } catch { }
+                                        analyticStructures.Add(analytic);
+                                    }
+                                    else if(9==astr.Length)
+                                    {
+                                        AnalyticStructure analytic = new AnalyticStructure
+                                        {
+                                            NodeSn = astr[1]
+                                        };
+                                        try { analytic.Battery = decimal.Parse(astr[2]); } catch { }
+                                        try { analytic.Moisture0 = decimal.Parse(astr[3]); } catch { }
+                                        try { analytic.Moisture30 = decimal.Parse(astr[4]); } catch { }
+                                        try { analytic.Dendrometer = decimal.Parse(astr[5]); } catch { }
+                                        try { analytic.Humidity = decimal.Parse(astr[6]); } catch { }
+                                        try { analytic.Temperature = decimal.Parse(astr[7]); } catch { }
+                                        analyticStructures.Add(analytic);
+                                    }
+                                }                                                                    
+                            }
+                            // anything else for not valid analytic result
+                        }
+                        response.Analytic = analyticStructures;
                         response.Data = sbList;
                     }
                     else

@@ -40,6 +40,7 @@
             this.cboPort = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGetPortName = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +98,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(269, 17);
+            this.label4.Location = new System.Drawing.Point(181, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 8;
@@ -119,7 +120,7 @@
             "5000",
             "5500",
             "6000"});
-            this.cboPollingRate.Location = new System.Drawing.Point(337, 14);
+            this.cboPollingRate.Location = new System.Drawing.Point(184, 69);
             this.cboPollingRate.Name = "cboPollingRate";
             this.cboPollingRate.Size = new System.Drawing.Size(76, 21);
             this.cboPollingRate.TabIndex = 9;
@@ -129,7 +130,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(419, 17);
+            this.label5.Location = new System.Drawing.Point(266, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 13);
             this.label5.TabIndex = 10;
@@ -137,8 +138,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(590, 154);
+            this.btnClear.Location = new System.Drawing.Point(279, 154);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 11;
@@ -148,19 +148,18 @@
             // 
             // rtbResponse
             // 
-            this.rtbResponse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbResponse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.rtbResponse.Location = new System.Drawing.Point(12, 183);
             this.rtbResponse.Name = "rtbResponse";
-            this.rtbResponse.Size = new System.Drawing.Size(653, 242);
+            this.rtbResponse.Size = new System.Drawing.Size(342, 440);
             this.rtbResponse.TabIndex = 12;
             this.rtbResponse.Text = "";
             // 
             // cboPort
             // 
             this.cboPort.FormattingEnabled = true;
-            this.cboPort.Location = new System.Drawing.Point(337, 41);
+            this.cboPort.Location = new System.Drawing.Point(184, 109);
             this.cboPort.Name = "cboPort";
             this.cboPort.Size = new System.Drawing.Size(76, 21);
             this.cboPort.TabIndex = 14;
@@ -169,7 +168,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 44);
+            this.label3.Location = new System.Drawing.Point(181, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 13;
@@ -177,7 +176,7 @@
             // 
             // btnGetPortName
             // 
-            this.btnGetPortName.Location = new System.Drawing.Point(419, 39);
+            this.btnGetPortName.Location = new System.Drawing.Point(266, 107);
             this.btnGetPortName.Name = "btnGetPortName";
             this.btnGetPortName.Size = new System.Drawing.Size(88, 23);
             this.btnGetPortName.TabIndex = 15;
@@ -185,11 +184,19 @@
             this.btnGetPortName.UseVisualStyleBackColor = true;
             this.btnGetPortName.Click += new System.EventHandler(this.btnGetPortName_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(360, 17);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(489, 385);
+            this.flowLayoutPanel1.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 437);
+            this.ClientSize = new System.Drawing.Size(1019, 635);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnGetPortName);
             this.Controls.Add(this.cboPort);
             this.Controls.Add(this.label3);
@@ -223,6 +230,7 @@
         private System.Windows.Forms.ComboBox cboPort;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGetPortName;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
